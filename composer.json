@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "app",
+            "Source\\": "source"
+        },
+        "files": [
+            "env.php",
+            "config/seo.php",
+            "config/urls.php",
+            "config/dirs.php",
+            "source/Support/helpers.php"
+        ]
+    }
+}

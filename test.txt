@@ -1,0 +1,7 @@
+Routing = [
+
+(Enter routers)==> routes/web.php ==> Route->(GET,POST) ==(Storing)=> $routing_table=[] (To Show routing table we use)==>Route->getRoutingTable()
+
+(Send query request)==(Check)==> App->(by __construt(check(Check query patern and method request)|render(check controller and action if true make rendering)))
+
+]
