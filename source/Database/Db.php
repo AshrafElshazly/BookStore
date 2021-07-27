@@ -9,11 +9,10 @@ class Db
 
     private function __construct()
     {
-        $this->conn = new \mysqli(DB_SERVERNAME ,DB_USERNAME ,DB_PASSEORD ,DB_DATABASE);
+        $this->conn = new \mysqli(DB_SERVERNAME ,DB_USERNAME ,DB_PASSWORD ,DB_DATABASE);
         ($this->conn->connect_error)? die("Connection failed ". $this->conn->connect_error) : null;
     }
     
-    //singleton ==> getInstance must be static to ignor(take obj and implement __construct automatic)
     public static function getInstance()
     {
         return (!self::$instance)? self::$instance = new self : self::$instance;
@@ -89,7 +88,7 @@ class Db
         $this->query .=" WHERE `$field` $operation '$value'";
         return $this;
     }
-    //new
+
     public function whereIn(string $field, array $values)
     {
         $values = "(" . implode(",", $values) . ")";
@@ -114,4 +113,35 @@ class Db
         $this->query .= " LIMIT $num"; 
         return $this;
     }
+
+
+    public function innerJoin($table_fields_Array, $fromTable, $onArray)
+    {
+        $columns = '';
+        $on ='';
+
+        foreach($table_fields_Array as $table => $fields) {
+            foreach($fields as $field) {
+               $alias = trim($table, "s") . "_" . $field;
+               $columns .= "$table.$field AS $alias, ";
+            }
+        }
+
+        foreach($onArray as $table => $conds) {
+            foreach($conds as $left => $right) {
+                $on .= " JOIN $table ON $left = $right";
+            }
+        }
+
+        $columns = substr($columns,0,-2);
+        $this->query = "SELECT $columns FROM $fromTable $on";
+        
+        return $this;
+    }
+
+    public function saveAndGetId()
+    {
+       return ($this->conn->query($this->query))? $this->conn->insert_id : null;
+    }
+
 }

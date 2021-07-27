@@ -5,7 +5,7 @@
             "Source\\": "source"
         },
         "files": [
-            "env.php",
+            "config/env.php",
             "config/seo.php",
             "config/urls.php",
             "config/dirs.php",

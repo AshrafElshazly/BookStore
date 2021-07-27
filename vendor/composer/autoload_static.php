@@ -11,7 +11,7 @@ class ComposerStaticInit1dd17a8ac00b32002ed46dba836f0f27
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        'e3d29885526bf36254b275f1e8720d97' => __DIR__ . '/../..' . '/env.php',
+        'f8ba2370829fa4dfbab3cf973cb9426d' => __DIR__ . '/../..' . '/config/env.php',
         'ddc6ef71139268dee904806434d8f323' => __DIR__ . '/../..' . '/config/seo.php',
         '83de162ce801b02d8131032aab8acc7b' => __DIR__ . '/../..' . '/config/urls.php',
         '49382141d4067a766a7a28a376aa9db6' => __DIR__ . '/../..' . '/config/dirs.php',
