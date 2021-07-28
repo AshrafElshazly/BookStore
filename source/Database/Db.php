@@ -31,20 +31,6 @@ class Db
         return $this;
     }
 
-    public function get()
-    {
-        $result = $this->conn->query($this->query);
-        return ($result->num_rows > 0)? $result->fetch_all(MYSQLI_ASSOC) : [] ;
-    }
-
-    public function getOne()
-    {
-        $this->query .= " LIMIT 1";
-        $result = $this->conn->query($this->query);
-
-        return ($result->num_rows > 0)? $result->fetch_assoc() : [];
-    }
-
     public function insert(array $data)
     {
         $keys   = [];
@@ -76,11 +62,6 @@ class Db
     {
         $this->query = "DELETE FROM `$this->table`";
         return $this;
-    }
-
-    public function save()
-    {
-        return $this->conn->query($this->query);
     }
 
     public function where(string $field ,string $operation ,$value)
@@ -138,10 +119,4 @@ class Db
         
         return $this;
     }
-
-    public function saveAndGetId()
-    {
-       return ($this->conn->query($this->query))? $this->conn->insert_id : null;
-    }
-
 }
