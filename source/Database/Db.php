@@ -64,6 +64,30 @@ class Db
         return $this;
     }
 
+    public function get()
+    {
+        $result = $this->conn->query($this->query);
+        return ($result->num_rows > 0)? $result->fetch_all(MYSQLI_ASSOC) : [] ;
+    }
+
+    public function getOne()
+    {
+        $this->query .= " LIMIT 1";
+        $result = $this->conn->query($this->query);
+
+        return ($result->num_rows > 0)? $result->fetch_assoc() : [];
+    }
+
+    public function save()
+    {
+        return $this->conn->query($this->query);
+    }
+
+    public function saveAndGetId()
+    {
+       return ($this->conn->query($this->query))? $this->conn->insert_id : null;
+    }
+
     public function where(string $field ,string $operation ,$value)
     {
         $this->query .=" WHERE `$field` $operation '$value'";
@@ -94,7 +118,6 @@ class Db
         $this->query .= " LIMIT $num"; 
         return $this;
     }
-
 
     public function innerJoin($table_fields_Array, $fromTable, $onArray)
     {
