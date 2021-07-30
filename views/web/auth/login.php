@@ -7,8 +7,8 @@
 
                 <div class="contact-wrap w-100 p-md-5 p-4">
                     <h3 class="mb-4">Login</h3>
-                    <?php //require VIEWS . "web/inc/errors.php"; ?>
-                    <form method="" action="" id="loginForm" name="loginForm" class="contactForm">
+                    <?php require VIEWS . "web/inc/errors.php"; ?>
+                    <form method="POST" action="<?= url('do-login') ?>" id="loginForm" name="loginForm" class="contactForm">
                         <div class="row">
                             
                             <div class="col-md-6"> 

@@ -23,7 +23,7 @@ class Route
         $controller_actions = explode("@",$controller_actions);
         $url_regex = "/^" . str_replace("/" ,"\/" ,$url) ."$/";
         Self::$routing_table[$url_regex] = [
-            "method"     => "post",
+            "method"     => "POST",
             "controller" => $controller_actions[0],
             "action"     => $controller_actions[1],
             "middleware" => $middleware

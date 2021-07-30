@@ -9,7 +9,7 @@ use Source\Support\Session;
 
 class Auth
 {
-    public static function attempt(string $email , string $pasword)
+    public static function attempt(string $email , string $password)
     {
         $session = new Session;
         $request = new Request;
@@ -17,7 +17,7 @@ class Auth
         $user = User::connectTable()->select()->where("email","=",$email)->getOne();
 
         if($user) {
-            $is_verified = password_verify($pasword,$user["password"]);
+            $is_verified = password_verify($password,$user["password"]);
 
             if($is_verified) {
                 $session->set("logged_user",$user);

@@ -27,3 +27,10 @@ if(!function_exists('url')) {
         echo URL . $path ;
     }
 }
+
+if(!function_exists('authCheck')) {
+    function authCheck()
+    {
+        return Source\Http\Auth::check();
+    }
+}

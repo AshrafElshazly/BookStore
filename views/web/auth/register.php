@@ -7,8 +7,8 @@
 
                 <div class="contact-wrap w-100 p-md-5 p-4">
                     <h3 class="mb-4">Register</h3>
-                    <?php //require VIEWS . "web/inc/errors.php"; ?>
-                    <form method="POST" action="" id="registerForm" name="registerForm" class="contactForm">
+                    <?php require VIEWS . "web/inc/errors.php"; ?>
+                    <form method="POST" action="<?= url('do-register'); ?>" id="registerForm" name="registerForm" class="contactForm">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
