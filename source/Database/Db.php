@@ -142,4 +142,10 @@ class Db
         
         return $this;
     }
+
+    public function paginate(int $limit,int $offset)
+    {
+        $this->query .= " LIMIT $limit OFFSET $offset";
+        return $this->get();
+    }
 }
