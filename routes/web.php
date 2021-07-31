@@ -17,6 +17,9 @@ Route::post("do-register","AuthController@doRegister");
 
 Route::get("logout","AuthController@logout","UserAuth");
 
-Route::get("cart","CartController@index");
 Route::get("contact-us","ContactController@index");
+Route::post('contact-us/send', "ContactController@send");
+
 Route::get("books","BooksController@index");
+
+Route::get("cart","CartController@index","UserAuth");
